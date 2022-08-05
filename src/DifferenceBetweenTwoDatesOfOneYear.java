@@ -20,6 +20,12 @@ public class DifferenceBetweenTwoDatesOfOneYear {
      */
     private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
 
+    private static final int HOURS_PER_DAY = 24;
+
+    private static final int MINUTES_PER_HOUR = 60;
+
+    private static final int MILLIS_PER_MINUTE = 60 * 1000;
+
     /**
      * Запускающий метод.
      */
@@ -94,7 +100,8 @@ public class DifferenceBetweenTwoDatesOfOneYear {
      * @return возвращает модуль разницы между двумя датами в днях.
      */
     private static Integer diffInDays(Date firstDate, Date secondDate) {
-        return (int) Math.abs((secondDate.getTime() - firstDate.getTime()) / (24 * 60 * 60 * 1000));
+        return (int) Math.abs((secondDate.getTime() - firstDate.getTime()) /
+                (HOURS_PER_DAY * MINUTES_PER_HOUR * MILLIS_PER_MINUTE));
     }
 
     /**
